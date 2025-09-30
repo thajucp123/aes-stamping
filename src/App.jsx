@@ -2,13 +2,13 @@ import React, { useRef, useState } from "react";
 import html2canvas from "html2canvas";
 import "./App.css";
 import CardForm from "./components/CardForm";
-import { getTodayDateStr } from "./utils";
+import { getTodayDateStr, formatDate } from "./utils";
 
 
 
 function App() {
   const [values, setValues] = useState({
-    bvText: "BV / KOC",
+    bvText: "BV/KOC",
     witness: false,
     review: false,
     name: "",
@@ -26,7 +26,7 @@ function App() {
       scale: 2
     });
     const link = document.createElement("a");
-    link.download = "bv-koc-card.png";
+    link.download = `${values.witness ? "W" : ""}${values.review ? "R" : ""}_${values.name}_${values.bvText}_${formatDate(values.date)}.png`;
     link.href = canvas.toDataURL();
     link.click();
     /*offscreenRef.current.style.display = "none";*/
@@ -43,7 +43,7 @@ function App() {
             value={values.bvText}
             onChange={e => setValues(v => ({ ...v, bvText: e.target.value }))}
             autoComplete="off"
-            placeholder="Enter BV / KOC"
+            placeholder="Eg: BV/KOC"
           />
         </div>
         <div className="form-group">
@@ -54,7 +54,7 @@ function App() {
             value={values.name}
             onChange={e => setValues(v => ({ ...v, name: e.target.value }))}
             autoComplete="off"
-            placeholder="Enter name"
+            placeholder="Enter Name"
             maxLength={17}
           />
         </div>

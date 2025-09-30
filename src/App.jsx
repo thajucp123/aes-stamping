@@ -29,7 +29,7 @@ function App() {
     link.download = "bv-koc-card.png";
     link.href = canvas.toDataURL();
     link.click();
-    offscreenRef.current.style.display = "none";
+    /*offscreenRef.current.style.display = "none";*/
   };
 
   return (
@@ -55,6 +55,7 @@ function App() {
             onChange={e => setValues(v => ({ ...v, name: e.target.value }))}
             autoComplete="off"
             placeholder="Enter name"
+            maxLength={17}
           />
         </div>
         <div className="form-group">
@@ -119,12 +120,14 @@ function App() {
       </form>
 
       <div className="view-panel">
-        <div className="card-responsive-wrapper">
+        <div className="card-responsive-wrapper" ref={offscreenRef}>
           <CardForm values={values} signatureUrl={signatureUrl} />
         </div>
         <button className="download-btn" onClick={downloadPNG}>
           Download as PNG
         </button>
+
+        {/* Offscreen rendering for image generation (old, I avoided it now) 
         <div
           className="offscreen"
           ref={offscreenRef}
@@ -139,6 +142,8 @@ function App() {
             <CardForm values={values} signatureUrl={signatureUrl} scale={2} />
           </div>
         </div>
+        */}
+
       </div>
     </div>
   );

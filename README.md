@@ -1,18 +1,29 @@
-# React + Vite
+# AES Stamping App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple web application built with React and Vite that allows users to create and download a digital "stamp" or "card" with specific information.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+*   **Customizable Card:** Users can input the following information to generate a card:
+    *   Representing Agency (e.g., "BV / KOC")
+    *   Inspector Name
+    *   Stamp Date
+    *   Witness (checkbox)
+    *   Review (checkbox)
+    *   Signature (by uploading an image)
+*   **Live Preview:** The application provides a real-time preview of the card as the user fills in the information.
+*   **Download as PNG:** Users can download the generated card as a PNG image.
 
-## React Compiler
+## Technology Stack
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+*   **Frontend:** React, Vite
+*   **Image Generation:** `html2canvas`
 
-Note: This will impact Vite dev & build performances.
+## How to Use
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1.  Clone the repository.
+2.  Install dependencies using `npm install`.
+3.  Run the development server using `npm run dev`.
+4.  Open the application in your browser.
+5.  Fill in the form with the required information.
+6.  Click the "Download as PNG" button to save the card to your computer.

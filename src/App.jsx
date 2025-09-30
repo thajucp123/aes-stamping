@@ -3,6 +3,7 @@ import html2canvas from "html2canvas";
 import "./App.css";
 import CardForm from "./components/CardForm";
 import { getTodayDateStr, formatDate } from "./utils";
+import logo from './assets/logo.png';
 
 
 
@@ -116,6 +117,12 @@ function App() {
               }}
             />
           </label>
+        </div>
+        <div className="form-footer">
+          <img src={logo} alt="Logo" className="footer-logo" />
+          <p className="footer-text">
+            Developed by <a href="https://www.thajucp.in/" target="_blank" rel="noopener noreferrer">ThajuCP</a>
+          </p>
         </div>
       </form>
 

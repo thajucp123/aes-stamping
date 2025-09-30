@@ -117,3 +117,29 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+.form-footer {
+  margin-top: auto;
+  padding-top: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.footer-logo {
+  height: 40px;
+}
+
+.footer-text {
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 5px;
+}
+
+.footer-text a {
+  color: #1976d2;
+  text-decoration: none;
+}
+
+.footer-text a:hover {
+  text-decoration: underline;
+}

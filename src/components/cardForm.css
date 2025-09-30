@@ -1,0 +1,83 @@
+
+.card-container {
+  background: #fff;
+  border: 0.25rem solid #1976d2;
+  border-radius: 0.375rem;
+  box-shadow: 0 1.5px 14px rgba(30,40,120,0.07);
+  width: 420px;
+  height: 255px;
+  box-sizing: border-box;
+  padding: 25px 32px 22px 26px;
+  position: relative;
+  color: #042866;
+  overflow: visible;
+  margin: 0 auto;
+}
+.card-scale {
+  transform: scale(2);
+  transform-origin: top left;
+  width: 840px;
+  height: 510px;
+}
+.common-font {
+  font-family: 'Poppins', Arial, sans-serif;
+  font-size: 1.40em;
+  letter-spacing: 1px;
+  color: #1976d2;
+  font-weight: bold;
+}
+.card-bv {
+  margin-bottom: 8px;
+}
+.card-check-row {
+  display: flex;
+  align-items: center;
+  margin-top: 14px;
+  gap: 34px;
+}
+.card-check-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: inherit;
+  font-weight: bold;
+  color: #1976d2;
+  opacity: 0.8;
+  transition: 0.13s;
+}
+.card-checkbox {
+  width: 24px;
+  height: 24px;
+}
+.checked-text {
+  color: #1360bb;
+  opacity: 1;
+}
+.unchecked-text {
+  color: #1976d2;
+  opacity: 0.41;
+}
+.card-label {
+  margin-top: 19px;
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #1976d2;
+}
+
+.card-field.distinctive-font {
+  font-weight: 600;
+  color: #032094;
+  font-size: 1.32em;
+  font-family: 'Indie Flower', Arial, sans-serif;
+}
+
+.card-signature {
+  position: absolute;
+  right: 34px;
+  bottom: 32px;
+  max-width: 120px;
+  max-height: 44px;
+  object-fit: contain;
+  pointer-events: none;
+  transform: rotate(-6deg);
+}

@@ -208,7 +208,7 @@ content: "";
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 300px;
+  max-width: 350px;
 }
 
 .no-signature {

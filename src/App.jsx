@@ -22,6 +22,7 @@ function App() {
   const [signatureHue, setSignatureHue] = useState(0);
   const [signatureSaturation, setSignatureSaturation] = useState(10);
   const [signatureBrightness, setSignatureBrightness] = useState(1.2);
+  const [hasUploadedAfile,setHasUploadedAfile]= useState(false);
   const offscreenRef = useRef();
 
   const downloadPNG = async () => {
@@ -143,7 +144,7 @@ function App() {
         <div className="form-group">
           <div className="signature-filename">
             {signatureFileName || (
-              <span className="no-signature">No signature uploaded (.jpg, .png accepted)</span>
+              <span className="no-signature">No signature uploaded (transparent .png accepted)</span>
             )}
           </div>
           
@@ -151,11 +152,12 @@ function App() {
             id="signature-upload"
             className="signature-upload-input"
             type="file"
-            accept="image/png, image/jpeg"
+            accept="image/png"
             onChange={e => {
               const file = e.target.files[0];
               if (file) {
                 setSignatureFileName(file.name);
+                setHasUploadedAfile(true);
                 const reader = new FileReader();
                 reader.onload = ev => setOriginalSignatureUrl(ev.target.result);
                 reader.readAsDataURL(file);
@@ -235,7 +237,7 @@ function App() {
             signatureBrightness={signatureBrightness}
           />
         </div>
-        <button className="download-btn" onClick={downloadPNG}>
+        <button className="download-btn" onClick={() => hasUploadedAfile ? downloadPNG(): alert("No signature uploaded")}>
           Download as PNG
         </button>
 

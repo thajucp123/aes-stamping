@@ -16,6 +16,7 @@ function App() {
     date: getTodayDateStr()
   });
   const [signatureUrl, setSignatureUrl] = useState(null);
+  const [signatureFileName, setSignatureFileName] = useState(null);
   const offscreenRef = useRef();
 
   const downloadPNG = async () => {
@@ -24,7 +25,7 @@ function App() {
     const canvas = await html2canvas(offscreenRef.current, {
       useCORS: true,
       backgroundColor: null,
-      scale: 2
+      scale: 3
     });
     const link = document.createElement("a");
     link.download = `${values.witness ? "W" : ""}${values.review ? "R" : ""}_${values.name}_${values.bvText}_${formatDate(values.date)}.png`;
@@ -102,17 +103,21 @@ function App() {
           </label>
         </div>
         <div className="form-group">
-          <label htmlFor="signature-upload" className="signature-upload-label">
-            Signature Upload
-          </label>
+          <div className="signature-filename">
+            {signatureFileName || (
+              <span className="no-signature">No signature uploaded (.jpg, .png accepted)</span>
+            )}
+          </div>
+          
           <input
             id="signature-upload"
             className="signature-upload-input"
             type="file"
-            accept="image/*"
+            accept="image/png, image/jpeg"
             onChange={e => {
               const file = e.target.files[0];
               if (file) {
+                setSignatureFileName(file.name);
                 const reader = new FileReader();
                 reader.onload = ev => setSignatureUrl(ev.target.result);
                 reader.readAsDataURL(file);

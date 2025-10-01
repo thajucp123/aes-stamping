@@ -144,7 +144,7 @@ body {
   text-decoration: underline;
 }
 
-.signature-upload-label {
+.signature-upload-input {
   display: inline-block;
   padding: 10px 15px;
   background-color: #1976d2;
@@ -156,10 +156,21 @@ body {
   transition: background-color 0.17s;
 }
 
-.signature-upload-label:hover {
+.signature-upload-input:hover {
   background-color: #1565c0;
+  box-shadow: 0 2px 8px #1976d246;
 }
 
-.signature-upload-input {
-  display: none;
+.signature-filename {
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  color: #555;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 300px;
+}
+
+.no-signature {
+  color: red;
 }

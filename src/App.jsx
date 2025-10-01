@@ -237,7 +237,7 @@ function App() {
             signatureBrightness={signatureBrightness}
           />
         </div>
-        <button className="download-btn" onClick={() => hasUploadedAfile ? downloadPNG(): alert("No signature uploaded")}>
+        <button className="download-btn" onClick={() => hasUploadedAfile ? (values.name?downloadPNG():alert("No name entered")): alert("No signature uploaded")}>
           Download as PNG
         </button>
 

@@ -174,3 +174,25 @@ body {
 .no-signature {
   color: red;
 }
+
+.sliders-container {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.slider-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.slider-group label {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.slider-group input[type="range"] {
+  flex-grow: 1;
+}

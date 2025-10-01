@@ -4,7 +4,13 @@ import { formatDate } from "../utils";
 import "./cardForm.css";
 import tickMark from "../assets/tick_mark.png";
 
-function CardForm({ values, signatureUrl, scale = 1 }) {
+function CardForm({
+  values,
+  signatureUrl,
+  signatureSize,
+  signatureHue,
+  scale = 1,
+}) {
   return (
     <div className={`card-container${scale > 1 ? " card-scale" : ""}`}>
       <div className="common-font card-bv">{values.bvText || "BV / KOC"}</div>
@@ -29,7 +35,15 @@ function CardForm({ values, signatureUrl, scale = 1 }) {
         Date: <span className="distinctive-font card-field">{formatDate(values.date)}</span>
       </div>
       {signatureUrl && (
-        <img src={signatureUrl} alt="signature" className="card-signature" />
+        <img
+          src={signatureUrl}
+          alt="signature"
+          className="card-signature"
+          style={{
+            transform: `scale(${signatureSize})`,
+            filter: `hue-rotate(${signatureHue}deg)`,
+          }}
+        />
       )}
     </div>
   );

@@ -17,6 +17,8 @@ function App() {
   });
   const [signatureUrl, setSignatureUrl] = useState(null);
   const [signatureFileName, setSignatureFileName] = useState(null);
+  const [signatureSize, setSignatureSize] = useState(1);
+  const [signatureHue, setSignatureHue] = useState(0);
   const offscreenRef = useRef();
 
   const downloadPNG = async () => {
@@ -124,6 +126,33 @@ function App() {
               }
             }}
           />
+          {signatureUrl && (
+            <div className="sliders-container">
+              <div className="slider-group">
+                <label htmlFor="signature-size">Size</label>
+                <input
+                  id="signature-size"
+                  type="range"
+                  min="0.5"
+                  max="2"
+                  step="0.01"
+                  value={signatureSize}
+                  onChange={e => setSignatureSize(e.target.value)}
+                />
+              </div>
+              <div className="slider-group">
+                <label htmlFor="signature-hue">Hue</label>
+                <input
+                  id="signature-hue"
+                  type="range"
+                  min="0"
+                  max="360"
+                  value={signatureHue}
+                  onChange={e => setSignatureHue(e.target.value)}
+                />
+              </div>
+            </div>
+          )}
         </div>
         <div className="form-footer">
           <img src={logo} alt="Logo" className="footer-logo" />
@@ -135,7 +164,12 @@ function App() {
 
       <div className="view-panel">
         <div className="card-responsive-wrapper" ref={offscreenRef}>
-          <CardForm values={values} signatureUrl={signatureUrl} />
+          <CardForm
+            values={values}
+            signatureUrl={signatureUrl}
+            signatureSize={signatureSize}
+            signatureHue={signatureHue}
+          />
         </div>
         <button className="download-btn" onClick={downloadPNG}>
           Download as PNG
@@ -153,7 +187,13 @@ function App() {
           }}
         >
           <div style={{ margin: "54px auto" }}>
-            <CardForm values={values} signatureUrl={signatureUrl} scale={2} />
+            <CardForm
+              values={values}
+              signatureUrl={signatureUrl}
+              signatureSize={signatureSize}
+              signatureHue={signatureHue}
+              scale={2}
+            />
           </div>
         </div>
         */}

@@ -19,6 +19,8 @@ function App() {
   const [signatureFileName, setSignatureFileName] = useState(null);
   const [signatureSize, setSignatureSize] = useState(1);
   const [signatureHue, setSignatureHue] = useState(0);
+  const [signatureSaturation, setSignatureSaturation] = useState(10);
+  const [signatureBrightness, setSignatureBrightness] = useState(1.2);
   const offscreenRef = useRef();
 
   const downloadPNG = async () => {
@@ -151,6 +153,30 @@ function App() {
                   onChange={e => setSignatureHue(e.target.value)}
                 />
               </div>
+              <div className="slider-group">
+                <label htmlFor="signature-saturation">Saturation</label>
+                <input
+                  id="signature-saturation"
+                  type="range"
+                  min="0"
+                  max="20"
+                  step="0.1"
+                  value={signatureSaturation}
+                  onChange={e => setSignatureSaturation(e.target.value)}
+                />
+              </div>
+              <div className="slider-group">
+                <label htmlFor="signature-brightness">Darkness</label>
+                <input
+                  id="signature-brightness"
+                  type="range"
+                  min="0"
+                  max="2.4"
+                  step="0.1"
+                  value={signatureBrightness}
+                  onChange={e => setSignatureBrightness(e.target.value)}
+                />
+              </div>
             </div>
           )}
         </div>
@@ -169,6 +195,8 @@ function App() {
             signatureUrl={signatureUrl}
             signatureSize={signatureSize}
             signatureHue={signatureHue}
+            signatureSaturation={signatureSaturation}
+            signatureBrightness={signatureBrightness}
           />
         </div>
         <button className="download-btn" onClick={downloadPNG}>
@@ -192,6 +220,8 @@ function App() {
               signatureUrl={signatureUrl}
               signatureSize={signatureSize}
               signatureHue={signatureHue}
+              signatureSaturation={signatureSaturation}
+              signatureBrightness={signatureBrightness}
               scale={2}
             />
           </div>

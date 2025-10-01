@@ -102,21 +102,23 @@ function App() {
           </label>
         </div>
         <div className="form-group">
-          <label>
-            Signature Upload:
-            <input
-              type="file"
-              accept="image/*"
-              onChange={e => {
-                const file = e.target.files[0];
-                if (file) {
-                  const reader = new FileReader();
-                  reader.onload = ev => setSignatureUrl(ev.target.result);
-                  reader.readAsDataURL(file);
-                }
-              }}
-            />
+          <label htmlFor="signature-upload" className="signature-upload-label">
+            Signature Upload
           </label>
+          <input
+            id="signature-upload"
+            className="signature-upload-input"
+            type="file"
+            accept="image/*"
+            onChange={e => {
+              const file = e.target.files[0];
+              if (file) {
+                const reader = new FileReader();
+                reader.onload = ev => setSignatureUrl(ev.target.result);
+                reader.readAsDataURL(file);
+              }
+            }}
+          />
         </div>
         <div className="form-footer">
           <img src={logo} alt="Logo" className="footer-logo" />

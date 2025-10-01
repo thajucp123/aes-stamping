@@ -143,3 +143,23 @@ body {
 .footer-text a:hover {
   text-decoration: underline;
 }
+
+.signature-upload-label {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #1976d2;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  font-weight: 600;
+  transition: background-color 0.17s;
+}
+
+.signature-upload-label:hover {
+  background-color: #1565c0;
+}
+
+.signature-upload-input {
+  display: none;
+}

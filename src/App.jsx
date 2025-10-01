@@ -9,7 +9,7 @@ import logo from './assets/logo.png';
 
 function App() {
   const [values, setValues] = useState({
-    bvText: "BV/KOC",
+    bvText: "",
     witness: false,
     review: false,
     name: "",
@@ -215,7 +215,9 @@ function App() {
           )}
         </div>
         <div className="form-footer">
+        <a href="https://www.aes-inspection.com" target="_blank" rel="noopener noreferrer">
           <img src={logo} alt="Logo" className="footer-logo" />
+          </a>
           <p className="footer-text">
             Developed by <a href="https://www.thajucp.in/" target="_blank" rel="noopener noreferrer">ThajuCP</a>
           </p>

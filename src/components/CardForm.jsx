@@ -8,9 +8,6 @@ function CardForm({
   values,
   signatureUrl,
   signatureSize,
-  signatureHue,
-  signatureSaturation,
-  signatureBrightness,
   scale = 1,
 }) {
   return (
@@ -43,7 +40,6 @@ function CardForm({
           className="card-signature"
           style={{
             transform: `scale(${signatureSize})`,
-            filter: `sepia(1) saturate(${signatureSaturation}) brightness(${signatureBrightness}) hue-rotate(180deg) hue-rotate(${signatureHue}deg)`,
           }}
         />
       )}

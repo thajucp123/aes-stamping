@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import html2canvas from "html2canvas";
 import "./App.css";
 import CardForm from "./components/CardForm";
@@ -16,6 +16,7 @@ function App() {
     date: getTodayDateStr()
   });
   const [signatureUrl, setSignatureUrl] = useState(null);
+  const [originalSignatureUrl, setOriginalSignatureUrl] = useState(null);
   const [signatureFileName, setSignatureFileName] = useState(null);
   const [signatureSize, setSignatureSize] = useState(1);
   const [signatureHue, setSignatureHue] = useState(0);
@@ -37,6 +38,39 @@ function App() {
     link.click();
     /*offscreenRef.current.style.display = "none";*/
   };
+
+  useEffect(() => {
+    if (!originalSignatureUrl) {
+      return;
+    }
+
+    const image = new Image();
+    image.crossOrigin = "anonymous";
+    image.src = originalSignatureUrl;
+
+    image.onload = () => {
+      const canvas = document.createElement("canvas");
+      canvas.width = image.width;
+      canvas.height = image.height;
+      const ctx = canvas.getContext("2d");
+
+      ctx.filter = `
+        sepia(1)
+        saturate(${signatureSaturation})
+        brightness(${signatureBrightness})
+        hue-rotate(180deg)
+        hue-rotate(${signatureHue}deg)
+      `;
+
+      ctx.drawImage(image, 0, 0);
+      setSignatureUrl(canvas.toDataURL());
+    };
+  }, [
+    originalSignatureUrl,
+    signatureSaturation,
+    signatureBrightness,
+    signatureHue,
+  ]);
 
   return (
     <div className="app-root">
@@ -123,7 +157,7 @@ function App() {
               if (file) {
                 setSignatureFileName(file.name);
                 const reader = new FileReader();
-                reader.onload = ev => setSignatureUrl(ev.target.result);
+                reader.onload = ev => setOriginalSignatureUrl(ev.target.result);
                 reader.readAsDataURL(file);
               }
             }}

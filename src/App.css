@@ -56,6 +56,9 @@ body {
   transition: border .2s;
   margin-top: 2px;
 }
+.form-group input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(100%);
+}
 .form-group input:focus {
   border: 2px solid #1565c0;
 }

@@ -96,7 +96,7 @@ function App() {
             onChange={e => setValues(v => ({ ...v, name: e.target.value }))}
             autoComplete="off"
             placeholder="Enter Name"
-            maxLength={17}
+            maxLength={25}
           />
         </div>
         <div className="form-group">

@@ -6,10 +6,11 @@
   width: 420px;
   height: 255px;
   box-sizing: border-box;
-  padding: 25px 32px 22px 26px;
+  padding: 25px 2px 22px 26px;
   position: relative;
   color: #042866;
   overflow: visible;
+  box-sizing: border-box;
   margin: 0 auto;
 }
 .card-scale {
@@ -39,6 +40,7 @@
   font-size: 1.4em;
   font-weight: bold;
   color: #1976d2;
+  min-width: 1000px;
 }
 
 .card-field.distinctive-font {

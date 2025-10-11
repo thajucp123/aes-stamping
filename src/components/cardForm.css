@@ -40,14 +40,14 @@
   font-size: 1.4em;
   font-weight: bold;
   color: #1976d2;
-  min-width: 1000px;
+  white-space: nowrap;
 }
 
 .card-field.distinctive-font {
   font-weight: 400;
   color: #032094;
   font-size: 1.32em;
-  font-family: 'Indie Flower', Arial, sans-serif;
+  font-family: 'ThajuFont', 'Indie Flower', Arial, sans-serif;
 }
 
 .card-signature {

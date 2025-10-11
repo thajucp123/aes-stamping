@@ -241,7 +241,15 @@ function App() {
           Download as PNG
         </button>
 
-        {/* Offscreen rendering for image generation (old, I avoided it now) 
+        <div className="useful-links">
+          <p>Useful Tools:</p>
+          <div className="useful-links-separator">
+          <a href="https://www.pixelcut.ai/image-upscaler" target="_blank" rel="noopener noreferrer">&#128279;Image Upscaler</a>
+          <a href="https://www.remove.bg/" target="_blank" rel="noopener noreferrer">&#128279;Background Remover</a>
+          </div>
+        </div>
+
+        {/* Offscreen rendering for image generation (old, I omitted it now) 
         <div
           className="offscreen"
           ref={offscreenRef}

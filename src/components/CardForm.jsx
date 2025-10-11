@@ -1,6 +1,6 @@
 
 import React from "react";
-import { formatDate } from "../utils";
+import { formatDate, toTitleCase } from "../utils";
 import "./cardForm.css";
 import tickMark from "../assets/tick_mark.png";
 
@@ -28,7 +28,7 @@ function CardForm({
         </div>
       </div>
       <div className="common-font card-label">
-        Name: <span className="distinctive-font card-field">{values.name || "----------"}</span>
+        Name: <span className="distinctive-font card-field">{toTitleCase(values.name) || "----------"}</span>
       </div>
       <div className="common-font card-label">
         Date: <span className="distinctive-font card-field">{formatDate(values.date)}</span>
